@@ -6,6 +6,15 @@
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
+            {{ form.username.label }}<br>
+            {{ form.username(class="form-control") }}<br>
+            {% for error in form.username.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p>
             {{ form.email.label }}<br>
             {{ form.email(class="form-control", type="email") }}<br>
             {% for error in form.email.errors %}
@@ -27,15 +36,6 @@
             {{ form.password_again.label }}<br>
             {{ form.password_again(class="form-control", type="password") }}<br>
             {% for error in form.password_again.errors %}
-                <p class="alert alert-danger" role="alert">
-                    {{ error }}
-                </p>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(class="form-control") }}<br>
-            {% for error in form.username.errors %}
                 <p class="alert alert-danger" role="alert">
                     {{ error }}
                 </p>
